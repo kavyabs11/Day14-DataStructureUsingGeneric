@@ -28,32 +28,35 @@ namespace DataStructure
             }
             Console.WriteLine($"Added {node.data} to the list");
         }
-        public void RemoveLast() // remove the last node in the list
+        public void Find(int data) // remove the last node in the list
         {
-            if (this.head == null)
+            int count = 0;
+            int found = 0;
+            Node node = new Node(data);
+            node = this.head;
+            if (node != null)
             {
-                Console.WriteLine("Empty linked list");
-            }
-            else
-            {
-                Node temp = this.head;
-                Node find = null;
-                while (temp.next != null)
+                while (node != null)
                 {
-                    find = temp;
-                    temp = find.next;
+                    count++;
+                    if (node.data == data)
+                    {
+                        found++;
+                        break;
+                    }
+                    node = node.next;
                 }
-                if (find == null)
+                if (found == 1)
                 {
-                    this.head = null;
+                    Console.WriteLine($"\n{node.data} is found at index {count}");
                 }
                 else
                 {
-                    find.next = null;
+                    Console.WriteLine("The list is empty");
                 }
             }
-            Console.WriteLine("removed the last node from the list");
         }
+
         public void Display()
         {
             Node temp = this.head; //pushing head data to temp. if head data is null the temp will be null and it will show as empty
