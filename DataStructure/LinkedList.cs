@@ -28,16 +28,25 @@ namespace DataStructure
             }
             Console.WriteLine($"Added {node.data} to the list");
         }
-        public void AddLast(int data) // add last to the list
+        public void AddMiddle(int data) // add niddle to the list
         {
             Node node = new Node(data);
-            Node temp = head;
-            while (temp.next != null)
+            if (this.head == null)
+                this.head = node;
+            else
             {
-                temp = temp.next;
+                Node temp = this.head;
+                Node middle = this.head;
+                while (temp.next != null && temp.next.next != null)
+                {
+                    temp = temp.next.next;
+                    middle = temp.next;
+                }
+                node.next = middle.next;
+                middle.next = node;
+
             }
-            temp.next = node; // next reference is fed with next node data
-            Console.WriteLine($"Added {node.data} to the last");
+            Console.WriteLine($"Added {node.data} to the middle");
         }
         public void Display()
         {
