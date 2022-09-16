@@ -29,91 +29,23 @@ namespace DataStructure
             }
             Console.WriteLine($"Added {node.data} to the list");
         }
-        public void Find(int data) // remove the last node in the list
+        public void Sorting()
         {
-            int found = 0;
-            Node node = new Node(data);
-            node = this.head;
-            if (node != null)
+            Node node;
+            Node newnode;
+            int temp;
+            for (node = this.head; node.next != null; node = node.next)
             {
-                while (node != null)
+                for (newnode = node.next; newnode != null; newnode = newnode.next)
                 {
-                    count++;
-                    if (node.data == data)
+                    if (node.data > newnode.data)
                     {
-                        found++;
-                        break;
+                        temp = node.data;
+                        node.data = newnode.data;
+                        newnode.data = temp;
                     }
-                    node = node.next;
-                }
-                if (found == 1)
-                {
-                    Console.WriteLine($"\n{node.data} is found at index {count}");
-                }
-                else
-                {
-                    Console.WriteLine("The list is empty");
                 }
             }
-        }
-        public Node InsertAtParticularPosition(int position, int data)
-        {
-            int n = 1;
-            Node node = new Node(data);
-            Node temp = head;
-            if (position < 1)
-                Console.WriteLine("Invalid position");
-            else if (position == 1)
-            {
-                Node newNode = node;
-                newNode.next = temp;
-                head = newNode;
-                Console.WriteLine($"Inserted {newNode.data} at position {position}");
-            }
-            else
-            {
-                while (n != position - 1) //
-                {
-                    temp = temp.next;
-                    n++;
-                }
-                Node newNode = node;
-                newNode.next = temp.next;
-                temp.next = newNode;
-                Console.WriteLine($"Inserted {newNode.data} at position {position}");
-            }
-            return head;
-        }
-        public void Delete(int position, int data)             //deleting node at a particular position
-        {
-            Node node = new Node(data);
-            Node temp = head;
-            int n = 1;
-            if (head == null)
-            {
-                Console.WriteLine("LinkedList is empty");
-            }
-            else
-            {
-                while (n != (position - 1))
-                {
-                    temp = temp.next;
-                    n++;
-                }
-                temp.next = temp.next.next;
-                Console.WriteLine($"\nDeleted {node.data} from position {position}");
-            }
-        }
-        public void Size()
-        {
-            Node temp = head;
-            int count = 0;
-            while (temp != null)
-            {
-                count++;
-                temp = temp.next;
-            }
-            Console.WriteLine($"The size of the linked list is {count}");
         }
         public void Display()
         {
@@ -131,3 +63,4 @@ namespace DataStructure
         }
     }
 }
+
