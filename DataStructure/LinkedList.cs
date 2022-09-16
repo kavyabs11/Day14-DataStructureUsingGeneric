@@ -84,7 +84,37 @@ namespace DataStructure
             }
             return head;
         }
-
+        public void Delete(int position, int data)             //deleting node at a particular position
+        {
+            Node node = new Node(data);
+            Node temp = head;
+            int n = 1;
+            if (head == null)
+            {
+                Console.WriteLine("LinkedList is empty");
+            }
+            else
+            {
+                while (n != (position - 1))
+                {
+                    temp = temp.next;
+                    n++;
+                }
+                temp.next = temp.next.next;
+                Console.WriteLine($"\nDeleted {node.data} from position {position}");
+            }
+        }
+        public void Size()
+        {
+            Node temp = head;
+            int count = 0;
+            while (temp != null)
+            {
+                count++;
+                temp = temp.next;
+            }
+            Console.WriteLine($"The size of the linked list is {count}");
+        }
         public void Display()
         {
             Node temp = this.head; //pushing head data to temp. if head data is null the temp will be null and it will show as empty
