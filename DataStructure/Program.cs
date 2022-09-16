@@ -10,7 +10,7 @@
             list.Add(30);
             list.Add(70);
             list.Display();
-            list.RemoveFirst();
+            list.RemoveLast();
             list.Display();
         }
     }
