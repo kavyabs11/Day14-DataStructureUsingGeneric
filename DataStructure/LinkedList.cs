@@ -19,7 +19,7 @@ namespace DataStructure
             }
             else
             {
-                Node temp = head; //else the head data is pushed to temp. where as head is null. So temp is null.
+                Node temp = head; //else the head data is pushed to temp.
                 while (temp.next != null)
                 {
                     temp = temp.next;
@@ -27,6 +27,18 @@ namespace DataStructure
                 temp.next = node;
             }
             Console.WriteLine($"Added {node.data} to the list");
+        }
+        public void AddFront(int data) // add front to the list
+        {
+            Node node = new Node(data);
+            if (this.head == null) //head has the value 70 hence else part will execute
+                this.head = null;
+            else
+            {
+                node.next = this.head; //next reference is fed with 70 so the 30 will sit front of 70
+                this.head = node;
+            }
+            Console.WriteLine($"Added {node.data} to the front");
         }
         public void Display()
         {
