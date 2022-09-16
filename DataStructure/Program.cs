@@ -11,6 +11,9 @@
             list.Add(70);
             list.Display();
             list.Find(30);
+            
+            list.InsertAtParticularPosition(list.count + 1, 40);
+            list.Display();
         }
     }
 }
